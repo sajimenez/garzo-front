@@ -1,0 +1,27 @@
+<div class="card">
+	<p-dataView #dv [value]="items" layout=grid>
+		<ng-template pTemplate="header">
+			<p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Search by Category"></p-dropdown>
+		</ng-template>
+		<ng-template let-item pTemplate="gridItem">
+			<div class="p-col-12 p-md-4">
+				<div class="item-grid-item card">
+					<div class="item-grid-item-top">
+						<div>
+							<i class="pi pi-tag item-category-icon"></i>
+							<span class="item-category">{{item.category}}</span>
+						</div>
+					</div>
+					<div class="item-grid-item-content">
+						<div class="item-name">{{item.name}}</div>
+						<div class="item-description">{{item.description}}</div>
+					</div>
+					<div class="item-grid-item-bottom">
+						<span class="item-price">${{item.price}}</span>
+						<p-button icon="pi pi-shopping-cart"></p-button>
+					</div>
+				</div>
+			</div>
+		</ng-template>
+	</p-dataView>
+</div>
