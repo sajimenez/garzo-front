@@ -25,6 +25,7 @@
     vertical-align: middle;
     margin-right: .5rem;
 }
+
 .item-grid-item-content {
     text-align: center;
 }
@@ -45,4 +46,8 @@
 .item-price {
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.p-dropdown {
+    width: 14rem;
 }

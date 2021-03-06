@@ -3,11 +3,6 @@ import { ItemService } from '../item.service';
 import { Item } from '../item'
 import {SelectItem} from 'primeng/api';
 
-const CAT = [
-  {label: 'Hamburguesas', value: 'h'},
-  {label: 'Combos', value: 'c'},
-]; 
-
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
@@ -15,12 +10,16 @@ const CAT = [
 })
 export class ItemsComponent implements OnInit {
   items: Item[];
-  categories: SelectItem[] = CAT;
-  selectedCategory: string;
+  categories: SelectItem[];
+  selectedCategory: SelectItem;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
+    this.categories = [
+      {label: 'Hamburguesas', value: 'h'},
+      {label: 'Combos', value: 'c'},
+    ];
     this.getItems();
   }
 

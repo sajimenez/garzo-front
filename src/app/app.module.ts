@@ -8,6 +8,7 @@ import {DataViewModule} from 'primeng/dataview';
 import { ItemsComponent } from './items/items.component';
 import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {DropdownModule} from 'primeng/dropdown';
     AppRoutingModule,
     DataViewModule,
     ButtonModule,
+    BrowserAnimationsModule,
     DropdownModule,
     FormsModule
   ],
