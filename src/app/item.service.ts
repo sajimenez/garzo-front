@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Item } from './item'
-
-const ITEMS = [
-  { id: 1,
-    name: 'BigMac',
-    description: 'Hamburguesa doble aaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-    price: '1990', category: 'Hamburguesas', image: 'https://www.eluniversal.com.mx/sites/default/files/2016/08/18/gastrohamburguesa.jpg'
-  },
-  { id: 2, name: 'McNifica', description: 'Hamburguesa simple',
-    price: '2990', category: 'Hamburguesas', image: 'https://www.eluniversal.com.mx/sites/default/files/2016/08/18/gastrohamburguesa.jpg'
-  },
-];
-
+import { Observable } from 'rxjs';
+import { Apollo, gql } from 'apollo-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private apollo: Apollo) { }
 
-  getItems(): Observable<Item[]> {
-    return of(ITEMS);
-  } 
+  getItems(slug: string): Observable<any> {
+    return this.apollo.watchQuery<any>({
+      query: gql`
+        query Organization($slug: String!) {
+          organization(slug: $slug) {
+            items{
+              id
+              imageUrl
+              name
+              price
+              description
+              category{
+                name
+              }      
+            }
+          }
+        }
+      `,
+      variables: {slug: slug,},
+    }).valueChanges;
+  }
 }

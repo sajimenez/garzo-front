@@ -24,7 +24,9 @@ export class ItemsComponent implements OnInit {
   }
 
   getItems(): void {
-    this.itemService.getItems().subscribe(items => this.items = items);
+    this.itemService.getItems('mcdonalds').subscribe(data => {
+      this.items = data.data.organization.items;
+      console.log(this.items);
+    });
   }
-
 }
