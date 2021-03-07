@@ -1,27 +1,28 @@
-<div class="card">
-	<p-dataView #dv [value]="items" layout=grid>
-		<ng-template pTemplate="header">
-			<p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Search by Category"></p-dropdown>
-		</ng-template>
-		<ng-template let-item pTemplate="gridItem">
-			<div class="p-col-12 p-md-4">
-				<div class="item-grid-item card">
-					<div class="item-grid-item-top">
+<p-dataView #dv [value]="items" layout=grid>
+	<ng-template pTemplate="header">
+		<div class="item-grid-item-top">
+			<p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Filtar por Categoría"></p-dropdown>
+			<p-button icon="pi pi-shopping-cart"></p-button>
+		</div>
+	</ng-template>
+	<ng-template let-item pTemplate="gridItem">
+		<div class="p-col-12 p-lg-3">
+			<p-card header="{{item.name}}" subheader="${{item.price}}" [style]="{'margin': '.5em'}"
+				styleClass="p-card-shadow">
+				<ng-template pTemplate="header">
+					<img class="center" alt="{{item.name}}" src="{{item.image}}">
+				</ng-template>
+				<p>{{item.description}}</p>
+				<ng-template pTemplate="footer">
+					<div class="item-grid-item-bottom">
 						<div>
 							<i class="pi pi-tag item-category-icon"></i>
 							<span class="item-category">{{item.category}}</span>
 						</div>
+						<p-button label="Ver más"></p-button>
 					</div>
-					<div class="item-grid-item-content">
-						<div class="item-name">{{item.name}}</div>
-						<div class="item-description">{{item.description}}</div>
-					</div>
-					<div class="item-grid-item-bottom">
-						<span class="item-price">${{item.price}}</span>
-						<p-button icon="pi pi-shopping-cart"></p-button>
-					</div>
-				</div>
-			</div>
-		</ng-template>
-	</p-dataView>
-</div>
+				</ng-template>
+			</p-card>
+		</div>
+	</ng-template>
+</p-dataView>
