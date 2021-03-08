@@ -3,7 +3,6 @@
 		<div class="item-grid-item-top">
 			<p-dropdown [options]="categories" placeholder="Filtar por Categoría"
 				(onChange)="dv.filter($event.value)" [showClear]="true" optionLabel="name" optionValue="id"></p-dropdown>
-			<p-button icon="pi pi-shopping-cart"></p-button>
 		</div>
 	</ng-template>
 	<ng-template let-item pTemplate="gridItem">

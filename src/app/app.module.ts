@@ -12,12 +12,14 @@ import {DataViewModule} from 'primeng/dataview';
 import { ItemsComponent } from './items/items.component';
 import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
-import { CardModule } from 'primeng/card';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {ToolbarModule} from 'primeng/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemsComponent
+    ItemsComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +29,8 @@ import { CardModule } from 'primeng/card';
     BrowserAnimationsModule,
     DropdownModule,
     FormsModule,
-    CardModule,
     HttpClientModule,
+    ToolbarModule,
   ],
   providers: [
     {
