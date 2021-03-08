@@ -1,8 +1,8 @@
 .card {
-    padding: 2rem;
+    padding: 1rem;
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
     border-radius: 4px;
-    margin-bottom: 2rem;
+    margin: .2rem;
 }
 
 .item-grid-item-top, .item-grid-item-bottom {
@@ -15,17 +15,17 @@
     margin-bottom: .5rem;
 }
 
-.item-price {
-    font-size: 1.5rem;
+.item-name {
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
-.p-card {
-    margin: 2rem;
+.item-price {
+    font-weight: 600;
 }
 
 img {
-    max-width: 200px;
+    max-width: 150px;
     margin: 0.5rem;
 }
 
@@ -39,7 +39,7 @@ p {
     white-space: initial;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 

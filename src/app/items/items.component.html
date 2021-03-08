@@ -1,28 +1,32 @@
-<p-dataView #dv [value]="items" layout=grid>
+<p-dataView #dv [value]="items" layout=grid [paginator]="true" [rows]="20" filterBy="category.id" [sortField]="sortField" [sortOrder]="sortOrder">
 	<ng-template pTemplate="header">
 		<div class="item-grid-item-top">
-			<p-dropdown [options]="categories" [(ngModel)]="selectedCategory" placeholder="Filtar por Categoría"></p-dropdown>
+			<p-dropdown [options]="categories" placeholder="Filtar por Categoría"
+				(onChange)="dv.filter($event.value)" [showClear]="true" optionLabel="name" optionValue="id"></p-dropdown>
 			<p-button icon="pi pi-shopping-cart"></p-button>
 		</div>
 	</ng-template>
 	<ng-template let-item pTemplate="gridItem">
-		<div class="p-col-12 p-lg-3">
-			<p-card header="{{item.name}}" subheader="${{item.price}}" [style]="{'margin': '.5em'}"
-				styleClass="p-card-shadow">
-				<ng-template pTemplate="header">
-					<img class="center" alt="{{item.name}}" src="{{item.image}}">
-				</ng-template>
-				<p>{{item.description}}</p>
-				<ng-template pTemplate="footer">
-					<div class="item-grid-item-bottom">
-						<div>
-							<i class="pi pi-tag item-category-icon"></i>
-							<span class="item-category">{{item.category.name}}</span>
-						</div>
-						<p-button label="Ver más"></p-button>
+		<div class="p-col-12 p-md-6 p-lg-4">
+			<div class="card">
+				<div class="p-grid">
+					<div class="p-col-fixed" style="width:150px">
+						<img class="center" alt="{{item.name}}" src="{{item.imageUrl}}">
 					</div>
-				</ng-template>
-			</p-card>
+					<div class="p-col" style="padding-left:1.5rem">
+						<div class="item-name">{{item.name}}</div>
+						<div class="item-price">${{item.price}}</div>
+						<p>{{item.description}}</p>
+					</div>
+				</div>
+				<div class="item-grid-item-bottom">
+					<div>
+						<i class="pi pi-tag item-category-icon"></i>
+						<span class="item-category">{{item.category.name}}</span>
+					</div>
+					<p-button label="Ver más"></p-button>
+				</div>
+			</div>
 		</div>
 	</ng-template>
 </p-dataView>

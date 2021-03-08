@@ -21,8 +21,13 @@ export class ItemService {
               price
               description
               category{
+                id
                 name
-              }      
+              }    
+            }
+            categories{
+              id
+              name
             }
           }
         }

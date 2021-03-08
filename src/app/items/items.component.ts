@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
 import { Item } from '../item'
-import {SelectItem} from 'primeng/api';
+import { Category } from '../category';
+import cloneDeep from 'lodash/cloneDeep';
 
 @Component({
   selector: 'app-items',
@@ -10,23 +11,23 @@ import {SelectItem} from 'primeng/api';
 })
 export class ItemsComponent implements OnInit {
   items: Item[];
-  categories: SelectItem[];
-  selectedCategory: SelectItem;
+  categories: Category[];
+  sortField: string;
+  sortOrder: number;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    this.categories = [
-      {label: 'Hamburguesas', value: 'h'},
-      {label: 'Combos', value: 'c'},
-    ];
     this.getItems();
   }
 
   getItems(): void {
     this.itemService.getItems('mcdonalds').subscribe(data => {
-      this.items = data.data.organization.items;
-      console.log(this.items);
+      let organization = cloneDeep(data.data.organization);
+      this.categories = organization.categories;
+      this.items = organization.items;
+      this.sortOrder = 1;
+      this.sortField = 'category.id';
     });
   }
 }
