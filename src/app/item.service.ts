@@ -35,4 +35,21 @@ export class ItemService {
       variables: {slug: slug,},
     }).valueChanges;
   }
+
+  getOrganization(slug: string): Observable<any> {
+    return this.apollo.watchQuery<any>({
+      query: gql`
+        query Organization($slug: String!) {
+          organization(slug: $slug) {
+            id
+            name
+            address
+            phone
+            imageUrl
+          }
+        }
+      `,
+      variables: {slug: slug,},
+    }).valueChanges;
+  }
 }

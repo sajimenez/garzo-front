@@ -14,12 +14,14 @@ import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from 'primeng/dropdown';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {ToolbarModule} from 'primeng/toolbar';
+import { OrganizationDetailComponent } from './organization-detail/organization-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    OrganizationDetailComponent
   ],
   imports: [
     BrowserModule,
