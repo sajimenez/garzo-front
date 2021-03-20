@@ -15,13 +15,15 @@ import {DropdownModule} from 'primeng/dropdown';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {ToolbarModule} from 'primeng/toolbar';
 import { OrganizationDetailComponent } from './organization-detail/organization-detail.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
     ToolbarComponent,
-    OrganizationDetailComponent
+    OrganizationDetailComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,

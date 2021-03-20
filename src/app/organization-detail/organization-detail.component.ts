@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Organization } from '../organization';
 import { ItemService } from '../item.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-organization-detail',
@@ -9,15 +10,20 @@ import { ItemService } from '../item.service';
 })
 export class OrganizationDetailComponent implements OnInit {
   organization: Organization;
+  slug: string;
 
-  constructor(private itemService: ItemService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService
+  ) { }
 
   ngOnInit(): void {
+    this.slug = this.route.snapshot.paramMap.get('slug');
     this.getOrganization();
   }
 
   getOrganization() {
-    this.itemService.getOrganization('mcdonalds').subscribe(data => {
+    this.itemService.getOrganization(this.slug).subscribe(data => {
       this.organization = data.data.organization;
     });
   }

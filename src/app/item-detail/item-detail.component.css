@@ -1,0 +1,28 @@
+.card {
+  padding: 1rem;
+  margin: .2rem;
+}
+
+img {
+  max-width: 150px;
+  margin: 0.5rem;
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
+}
+
+p {
+  overflow: hidden;
+  white-space: initial;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.item-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
