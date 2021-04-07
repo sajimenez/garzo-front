@@ -23,9 +23,13 @@
 						<i class="pi pi-tag item-category-icon"></i>
 						<span class="item-category">{{item.category.name}}</span>
 					</div>
-					<p-button label="Ver más" routerLink="items/{{item.id}}"></p-button>
+					<p-button label="Ver más" (click)="showDialog(item)"></p-button>
 				</div>
 			</div>
 		</div>
 	</ng-template>
 </p-dataView>
+
+<p-dialog [(visible)]="displayDialog" [modal]="true" [draggable]="false" [resizable]="false" styleClass="pdialog">
+		<app-item-detail [item]="selectedItem"></app-item-detail>
+</p-dialog>

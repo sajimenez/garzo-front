@@ -15,6 +15,8 @@ export class ItemsComponent implements OnInit {
   sortField: string;
   sortOrder: number;
   @Input() slug?: string;
+  displayDialog: boolean = false;
+  selectedItem: Item;
 
   constructor(private itemService: ItemService) { }
 
@@ -30,5 +32,10 @@ export class ItemsComponent implements OnInit {
       this.sortOrder = 1;
       this.sortField = 'category.id';
     });
+  }
+
+  showDialog(item: Item) {
+      this.selectedItem = item;
+      this.displayDialog = true;
   }
 }

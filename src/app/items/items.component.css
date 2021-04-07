@@ -50,3 +50,14 @@ p {
 .item-category-icon {
     margin-right: .5rem;
 }
+
+::ng-deep .p-dialog.pdialog {
+    width: 50vw;
+}
+
+@media (max-width: 900px) {
+    ::ng-deep .p-dialog.pdialog {
+        width: 100vw;
+    }
+}
+  

@@ -16,6 +16,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import {ToolbarModule} from 'primeng/toolbar';
 import { OrganizationDetailComponent } from './organization-detail/organization-detail.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     FormsModule,
     HttpClientModule,
     ToolbarModule,
+    DialogModule,
   ],
   providers: [
     {
